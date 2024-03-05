@@ -3,7 +3,7 @@ import './css/LoginSignup.css'
 const LoginSignup = () => {
   return (
       <div className='login-signup'>
-        <div className='login-signup-container'>\
+        <div className='login-signup-container'>
           <h1>Sign Up</h1>
           <div className='login-signup-fields'>
             <input type='text' placeholder='Name'/>
