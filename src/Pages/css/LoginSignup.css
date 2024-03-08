@@ -7,7 +7,7 @@
 
 .login-signup-container {
   width: 580px;
-  height: 600px;
+  height: 800px;
   background: white;
   margin: auto;
   padding: 40px 60px;
@@ -25,8 +25,6 @@
 }
 
 .login-signup-fields input {
-  height: 60px;
-  width: 100%;
   padding-left: 20px;
   border: 1px solid #c9c9c9;
   outline: none;
@@ -35,8 +33,7 @@
 }
 
 .login-signup-container button {
-  width: 580px;
-  height: 72px;
+  width: 100%;
   color: white;
   background: #ff4141;
   margin-top: 30px;
@@ -56,14 +53,22 @@
 .login-signup-login span {
   color: #FF4141;
   font-weight: 600;
+  cursor: pointer;
 }
 
-.login-signup-agree {
-  display: flex;
-  align-items: center;
-  margin-top: 25px;
-  gap: 20px;
-  color: #5c5c5c;
+.login-error {
+  margin-top: 30px;
+  color: red;
+}
+
+.login-signup-datepicker {
+  height: 50px;
+  width: 300px;
+}
+
+.login-signup-locale {
+  width: 300px;
+  height: 50px;
   font-size: 18px;
   font-weight: 500;
 }
