@@ -1,5 +1,4 @@
 import React, {useRef, useState} from 'react'
-import {useNavigate} from 'react-router-dom';
 import {authenticateUser, createUser} from '../services/authenticate';
 import {Button, TextField, Typography} from '@mui/material'
 import Select from '@mui/material/Select';
