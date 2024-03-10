@@ -100,7 +100,6 @@ const LoginSignup = (props) => {
                             return;
                         }
                         setServerErr('');
-                        console.log(result.user);
                         window.location.href = '/';
                     });
                 }
