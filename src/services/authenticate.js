@@ -40,7 +40,6 @@ export const authenticateUser = (email, password, callback) => {
   const cognitoUser = new CognitoUser(userData)
   cognitoUser.authenticateUser(authDetails, {
     onSuccess: result => {
-      console.log('access token + ' + result.getAccessToken().getJwtToken())
       callback(null, result)
     },
     onFailure: err => {
