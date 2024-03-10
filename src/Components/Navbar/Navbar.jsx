@@ -4,7 +4,7 @@ import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
-import {logout, getCurrentUser, getCurrentUserAttr} from '../../services/authenticate';
+import {logout, getCurrentUserAttr} from '../../services/authenticate';
 
 const Navbar = () => {
 
