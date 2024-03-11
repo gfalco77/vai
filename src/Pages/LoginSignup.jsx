@@ -66,46 +66,57 @@ const LoginSignup = (props) => {
             setPassword(value);
         }
     };
-    const handleLoginClick = () => {
-        setEmailErr("");
-        setPasswordErr("");
-        validation()
-            .then((res) => {
-                if (res.email === '' && res.password === '') {
-                    authenticateUser(email, password, (err, result) => {
-                        if (err) {
-                            console.log(err);
-                            setServerErr(err.message);
-                            return;
-                        }
-                        setServerErr('');
-                        console.log(result.user);
-                        window.location.href = '/';
-                    });
-                }
-            }, err => console.log(err))
-            .catch(err => console.log(err));
-    }
+    const handleLoginClick = async () => {
+        try {
+            setEmailErr("");
+            setPasswordErr("");
+            const res = await validation();
 
-    const handleSignUpClick = () => {
+            if (res.email === '' && res.password === '') {
+                const result = await new Promise((resolve, reject) => {
+                    authenticateUser(email, password, (err, result) => {
+                        if (err) reject(err);
+                        else resolve(result);
+                    });
+                });
+
+                if (result) {
+                    setServerErr('');
+                    console.log(result.user);
+                    window.location.href = '/';
+                }
+            }
+        } catch (err) {
+            console.error('Error authenticating user:', err);
+            setServerErr(err.message);
+        }
+    };
+    const handleSignUpClick = async () => {
         setEmailErr("");
         setPasswordErr("");
-        validation()
-            .then((res) => {
-                if (res.email === '' && res.password === '') {
+
+        try {
+            const res = await validation();
+
+            if (res.email === '' && res.password === '') {
+                await new Promise((resolve, reject) => {
                     createUser(email, password, firstname, lastname, birthDate, phoneNumber, currentLocale, (err, result) => {
                         if (err) {
                             console.log(err);
                             setServerErr(err.message);
+                            reject(err);
                             return;
                         }
                         setServerErr('');
                         window.location.href = '/';
+                        resolve(result);
                     });
-                }
-            })
-            .catch(err => console.log(err));
-    }
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <div className='login-signup'>
