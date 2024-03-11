@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 const ssm = new AWS.SSM({
-    region: process.env.REACT_APP_AWS_REGION,
+    region: "eu-west-2",
     maxRetries: 5,
     retryDelayOptions: 200,
     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
