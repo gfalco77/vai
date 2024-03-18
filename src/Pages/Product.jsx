@@ -4,10 +4,12 @@ import {useParams} from "react-router-dom";
 import Breadcrumb from "../Components/Breacrumb/Breadcrumb";
 import ProductDisplay from "../Components/ProductDisplay/ProductDisplay";
 import DescriptionBox from "../Components/DescriptionBox/DescriptionBox";
+import {fetchProducts} from "../Services/products"
 
 const Product = () => {
   const {all_product} = useContext(ShopContext);
   const {productId} = useParams();
+  const {productsDB} = fetchProducts(); // TODO
   const product = all_product.find((e) => e.id === Number(productId))
   return (
       <div className='product'>
